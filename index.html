@@ -30,7 +30,7 @@
 
     <!-- 최상단 헤더 -->
     <header class="sticky top-0 z-30 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
-        <div class="max-w-md mx-auto px-4 pt-3 pb-3 space-y-3">
+        <div class="max-w-md mx-auto px-4 pt-3 pb-3 space-y-2.5">
             <div class="flex items-center justify-between">
                 <div class="flex items-center space-x-2">
                     <div class="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center text-white font-bold text-sm shadow-sm">
@@ -41,31 +41,47 @@
                 <span class="text-xs font-semibold px-2 py-1 bg-indigo-50 text-indigo-600 rounded-full border border-indigo-100">2026학년도</span>
             </div>
 
-            <!-- 시인성을 대폭 강화한 구글 드라이브 양식 다운로드 버튼 -->
-            <a href="https://drive.google.com/uc?export=download&id=16mUUcY7G6PHQQPQHZP8KOZZVlvFJ1lwj" 
-               target="_blank" 
-               rel="noopener noreferrer"
-               class="w-full flex items-center justify-between bg-gradient-to-r from-indigo-600 via-indigo-700 to-blue-600 hover:from-indigo-700 hover:to-blue-800 text-white font-extrabold py-4 px-4 sm:px-5 rounded-2xl shadow-xl hover:shadow-indigo-500/30 ring-4 ring-indigo-500/20 active:scale-[0.98] transition-all duration-200 group relative overflow-hidden">
-                
-                <!-- 배경 은은한 광원 효과 -->
-                <div class="absolute -right-4 -bottom-4 w-24 h-24 bg-white/10 rounded-full blur-xl group-hover:scale-150 transition-transform duration-500 pointer-events-none"></div>
+            <!-- 양식 다운로드 및 예시보기 버튼 구역 -->
+            <div class="grid grid-cols-1 gap-2">
+                <!-- 1. 다운로드 메인 버튼 -->
+                <a href="https://drive.google.com/uc?export=download&id=16mUUcY7G6PHQQPQHZP8KOZZVlvFJ1lwj" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   class="w-full flex items-center justify-between bg-gradient-to-r from-indigo-600 via-indigo-700 to-blue-600 hover:from-indigo-700 hover:to-blue-800 text-white font-extrabold p-3.5 sm:px-4 rounded-xl shadow-lg hover:shadow-indigo-500/20 active:scale-[0.98] transition-all duration-200 group relative overflow-hidden">
+                    
+                    <div class="absolute -right-4 -bottom-4 w-24 h-24 bg-white/10 rounded-full blur-xl group-hover:scale-150 transition-transform duration-500 pointer-events-none"></div>
 
-                <div class="flex items-center space-x-3 z-10 flex-1 min-w-0 mr-2">
-                    <div class="w-10 h-10 rounded-xl bg-white/20 flex-shrink-0 flex items-center justify-center group-hover:scale-110 group-hover:bg-white/30 transition-all shadow-inner">
-                        <i class="fa-solid fa-file-arrow-down text-xl text-white"></i>
+                    <div class="flex items-center space-x-3 z-10 flex-1 min-w-0 mr-2">
+                        <div class="w-9 h-9 rounded-lg bg-white/20 flex-shrink-0 flex items-center justify-center group-hover:scale-110 group-hover:bg-white/30 transition-all shadow-inner">
+                            <i class="fa-solid fa-file-arrow-down text-lg text-white"></i>
+                        </div>
+                        <div class="flex flex-col text-left truncate">
+                            <span class="text-sm font-black tracking-tight leading-snug truncate">결석계 / 체험학습 양식</span>
+                            <span class="text-[11px] font-medium text-indigo-100/90 truncate">클릭 시 서식 파일 다운로드 (.hwp)</span>
+                        </div>
                     </div>
-                    <div class="flex flex-col text-left truncate">
-                        <span class="text-sm sm:text-base font-black tracking-tight leading-snug truncate">결석계, 체험학습 양식</span>
-                        <span class="text-[11px] sm:text-xs font-medium text-indigo-100/90 truncate">클릭 시 즉시 다운로드 (.hwp)</span>
-                    </div>
-                </div>
 
-                <!-- 오른쪽 '바로다운받기' 배지 버튼 (크기와 폰트 확대) -->
-                <div class="flex-shrink-0 flex items-center space-x-1.5 text-xs sm:text-sm font-black bg-white text-indigo-700 hover:bg-indigo-50 px-3.5 py-2 rounded-xl shadow-md group-hover:shadow-lg group-hover:scale-105 transition-all z-10">
-                    <span>바로다운받기</span>
-                    <i class="fa-solid fa-download text-xs group-hover:translate-y-0.5 transition-transform"></i>
-                </div>
-            </a>
+                    <div class="flex-shrink-0 flex items-center space-x-1 text-xs font-black bg-white text-indigo-700 hover:bg-indigo-50 px-3 py-1.5 rounded-lg shadow-sm z-10">
+                        <span>다운로드</span>
+                        <i class="fa-solid fa-download text-[10px]"></i>
+                    </div>
+                </a>
+
+                <!-- 2. 신규 추가: 체험학습 양식 작성 예시보기 버튼 -->
+                <button onclick="openExampleModal()" 
+                        class="w-full flex items-center justify-between bg-amber-50 hover:bg-amber-100/80 border border-amber-200/80 text-amber-900 font-bold py-2.5 px-3.5 rounded-xl shadow-sm transition-all active:scale-[0.98] group">
+                    <div class="flex items-center space-x-2 text-xs sm:text-sm">
+                        <div class="w-6 h-6 rounded-md bg-amber-500 text-white flex items-center justify-center text-xs">
+                            <i class="fa-solid fa-lightbulb"></i>
+                        </div>
+                        <span>어떻게 쓰나요? <strong class="text-amber-700">체험학습 작성 예시보기</strong></span>
+                    </div>
+                    <span class="text-xs text-amber-700 font-semibold group-hover:translate-x-0.5 transition-transform flex items-center">
+                        예시 열기 <i class="fa-solid fa-chevron-right text-[10px] ml-1"></i>
+                    </span>
+                </button>
+            </div>
+
         </div>
 
         <!-- 카테고리 탭 메뉴 (3개) -->
@@ -183,6 +199,22 @@
                     <div id="modal-docs" class="text-slate-700 font-medium bg-emerald-50/60 p-3 rounded-xl border border-emerald-100/80"></div>
                 </div>
 
+                <!-- 💡 [신규 추가] 체험학습 전용 작성 예시 바로가기 버튼 (교외체험학습 클릭 시만 표시) -->
+                <div id="modal-example-btn-area" class="hidden">
+                    <button onclick="openExampleModalFromDetail()" 
+                            class="w-full flex items-center justify-between bg-amber-50 hover:bg-amber-100/80 border border-amber-200 text-amber-900 font-bold p-3 rounded-xl shadow-sm transition-all active:scale-[0.98]">
+                        <div class="flex items-center space-x-2 text-xs">
+                            <div class="w-6 h-6 rounded-md bg-amber-500 text-white flex items-center justify-center text-xs">
+                                <i class="fa-solid fa-lightbulb"></i>
+                            </div>
+                            <span>신청서 & 보고서 작성 예시가 궁금하다면?</span>
+                        </div>
+                        <span class="text-xs text-amber-700 font-bold flex items-center">
+                            예시보기 <i class="fa-solid fa-chevron-right text-[10px] ml-1"></i>
+                        </span>
+                    </button>
+                </div>
+
                 <!-- 제출 기한 -->
                 <div>
                     <h4 class="font-bold text-slate-700 mb-1 flex items-center">
@@ -204,6 +236,121 @@
             <!-- 모달 하단 닫기 버튼 -->
             <div class="p-4 border-t border-slate-100 bg-slate-50 rounded-b-2xl">
                 <button onclick="closeModal()" class="w-full py-2.5 bg-slate-800 hover:bg-slate-900 text-white font-semibold rounded-xl text-xs transition-colors">
+                    확인 및 닫기
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- 💡 [신규 추가] 교외체험학습 예시보기 모달 -->
+    <div id="example-modal" class="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-slate-900/60 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-200 p-0 sm:p-4">
+        <div id="example-modal-content" class="bg-white w-full max-w-md rounded-t-2xl sm:rounded-2xl shadow-xl max-h-[90vh] flex flex-col transform translate-y-full sm:translate-y-0 transition-transform duration-200">
+            
+            <!-- 모달 헤더 -->
+            <div class="px-5 py-4 border-b border-slate-100 flex items-center justify-between bg-amber-50/70 rounded-t-2xl">
+                <div class="flex items-center space-x-2">
+                    <div class="w-7 h-7 rounded-lg bg-amber-500 text-white flex items-center justify-center text-xs shadow-sm">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </div>
+                    <h3 class="text-base font-bold text-slate-800">체험학습 양식 작성 예시</h3>
+                </div>
+                <button onclick="closeExampleModal()" class="w-8 h-8 rounded-full bg-slate-200/60 hover:bg-slate-200 flex items-center justify-center text-slate-500 transition-colors">
+                    <i class="fa-solid fa-xmark text-sm"></i>
+                </button>
+            </div>
+
+            <!-- 서식 탭 (신청서 예시 / 보고서 예시) -->
+            <div class="px-5 pt-3 bg-white border-b border-slate-100">
+                <div class="flex space-x-2">
+                    <button id="ex-tab-plan" onclick="switchExampleTab('plan')" class="flex-1 py-2 text-xs font-bold rounded-t-lg border-b-2 border-amber-500 text-amber-700 bg-amber-50/50 transition-colors">
+                        ① 신청서 작성 예시 (사전)
+                    </button>
+                    <button id="ex-tab-report" onclick="switchExampleTab('report')" class="flex-1 py-2 text-xs font-bold rounded-t-lg border-b-2 border-transparent text-slate-400 hover:text-slate-600 transition-colors">
+                        ② 보고서 작성 예시 (사후)
+                    </button>
+                </div>
+            </div>
+
+            <!-- 모달 바디 -->
+            <div class="p-5 overflow-y-auto space-y-4 text-xs sm:text-sm leading-relaxed no-scrollbar flex-1">
+                
+                <!-- 1. 신청서 작성 예시 영역 -->
+                <div id="example-plan-content" class="space-y-4">
+                    <div class="bg-amber-50/50 border border-amber-200/70 p-3 rounded-xl text-xs text-amber-900 leading-relaxed">
+                        <i class="fa-solid fa-circle-info text-amber-600 mr-1"></i>
+                        <strong>체험 3일 전까지</strong> 담임선생님께 제출해야 합니다. (가족여행, 현장체험 등)
+                    </div>
+
+                    <div class="space-y-3">
+                        <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 space-y-1">
+                            <span class="text-[11px] font-bold text-indigo-600">■ 목적 (사유) 예시</span>
+                            <p class="text-slate-700 font-medium text-xs">
+                                "가족과 함께하는 역사 유적 탐방 및 전통문화 생태 체험학습"
+                            </p>
+                        </div>
+
+                        <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 space-y-1">
+                            <span class="text-[11px] font-bold text-indigo-600">■ 학습 계획 작성 예시</span>
+                            <div class="text-slate-700 text-xs leading-relaxed space-y-2 pt-1 font-mono bg-white p-2.5 rounded-lg border border-slate-100">
+                                <p><strong>1일차:</strong> 불국사와 석굴암을 방문하여 신라의 문화유산을 관람하고, 건축물과 불상의 특징을 살펴보며 우리 문화유산의 소중함을 알아본다.</p>
+                                <p><strong>2일차:</strong> 국립경주박물관에서 다양한 유물을 관람하며 신라의 역사와 생활 모습을 알아보고, 전통문화 체험활동에 참여한다.</p>
+                                <p><strong>3일차:</strong> 첨성대와 주변 유적지를 둘러보며 신라의 과학 기술을 알아보고, 보호자와 함께 새롭게 배운 점과 느낀 점을 나눈다.</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 space-y-1">
+                            <span class="text-[11px] font-bold text-indigo-600">■ 보호자 인계 및 동반자</span>
+                            <p class="text-slate-700 font-medium text-xs">
+                                동반 보호자: 학생 부모님 (또는 보호자 지정 대리인)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. 보고서 작성 예시 영역 -->
+                <div id="example-report-content" class="space-y-4 hidden">
+                    <div class="bg-blue-50/50 border border-blue-200/70 p-3 rounded-xl text-xs text-blue-900 leading-relaxed">
+                        <i class="fa-solid fa-circle-info text-blue-600 mr-1"></i>
+                        <strong>체험 종료 후 7일 이내</strong> 제출하며, <u>보호자와 함께 찍은 사진</u>을 반드시 첨부해야 합니다.
+                    </div>
+
+                    <div class="space-y-3">
+                        <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 space-y-1">
+                            <span class="text-[11px] font-bold text-indigo-600">■ 체험 내용 및 느낀 점 작성 예시</span>
+                            <div class="text-slate-700 text-xs leading-relaxed space-y-2.5 pt-1.5 p-3 rounded-lg border border-slate-200/60 bg-indigo-50/30">
+                                <div>
+                                    <span class="inline-block font-bold text-indigo-900 bg-indigo-100/80 px-2 py-0.5 rounded text-[11px] mb-1.5">학습 내용</span>
+                                    <div class="text-slate-700 font-normal leading-relaxed space-y-2.5">
+                                        <p><strong>1일차: 불국사 및 석굴암 탐방</strong><br>불국사와 석굴암을 직접 방문하여 신라 시대의 건축 기술과 예술성을 살펴보았습니다. 불국사에서는 다보탑과 석가탑의 생김새를 비교하며 두 탑이 서로 다른 아름다움을 지니고 있다는 것을 알게 되었습니다. 또한 돌로 만든 계단과 건축물을 관찰하며 옛사람들이 돌을 정교하게 다루었던 기술을 살펴보았습니다. 석굴암에서는 본존불의 표정과 자세, 주변 조각의 섬세한 모습을 관찰하고, 신라의 불교문화에 대해 알아보았습니다.</p>
+                                        <p><strong>2일차: 국립경주박물관 견학 및 전통문화 체험</strong><br>국립경주박물관을 방문하여 신라 금관과 장신구, 토기 등 다양한 유물을 관람하였습니다. 금관의 섬세한 장식을 살펴보며 신라의 금속 공예 기술을 알아보고, 토기와 생활 도구를 통해 당시 사람들의 생활 모습을 짐작해 보았습니다. 가족들과 함께 유물에 대한 설명을 읽으며 유물의 쓰임새와 특징을 알아보았습니다. 전통문화 체험활동에도 참여하여 우리 문화를 직접 경험하고, 박물관에서 배운 내용을 되새겨 보았습니다.</p>
+                                        <p><strong>3일차: 첨성대 주변 역사 탐방 및 학습내용 정리</strong><br>첨성대와 주변 유적지를 둘러보며 신라의 역사와 과학 기술에 대해 알아보았습니다. 첨성대의 모양과 돌을 쌓은 모습을 관찰하고, 옛사람들이 하늘과 별을 관측한 이유를 생각해 보았습니다. 천문 관측이 계절의 변화와 농사 시기를 파악하는 데 도움이 되었다는 점도 배웠습니다. 탐방을 마친 뒤에는 가족들과 함께 가장 기억에 남는 문화유산과 새롭게 알게 된 내용을 이야기하고, 사흘 동안 배운 내용을 정리하였습니다.</p>
+                                    </div>
+                                </div>
+                                <div class="pt-2 border-t border-indigo-100">
+                                    <span class="inline-block font-bold text-indigo-900 bg-indigo-100/80 px-2 py-0.5 rounded text-[11px] mb-1">느낀 점</span>
+                                    <p class="text-slate-700 font-normal leading-relaxed">교과서에서 보던 문화유산을 직접 보니 신라 사람들의 뛰어난 기술과 예술성이 놀랍게 느껴졌고, 우리 역사에 대한 자부심이 생겼습니다. 소중한 문화유산을 잘 보존해야겠다고 생각하였으며, 가족과 함께 역사를 배울 수 있어 뜻깊었습니다.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-amber-50/70 p-3 rounded-xl border border-amber-200 space-y-1.5">
+                            <span class="text-[11px] font-bold text-amber-800 flex items-center">
+                                <i class="fa-solid fa-camera mr-1"></i> 사진 첨부 필수 유의사항
+                            </span>
+                            <p class="text-slate-700 text-xs leading-relaxed">
+                                • 체험 장소 배경에서 <strong>학생과 보호자가 함께 나온 사진</strong>을 보고서 하단 사진란에 부착해주세요.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- 모달 하단 버튼 (복사하기 버튼 삭제 및 닫기 버튼 전면 배치) -->
+            <div class="p-4 border-t border-slate-100 bg-slate-50 rounded-b-2xl">
+                <button onclick="closeExampleModal()" class="w-full py-3 bg-slate-800 hover:bg-slate-900 text-white font-bold rounded-xl text-xs transition-colors shadow-sm">
                     확인 및 닫기
                 </button>
             </div>
@@ -292,6 +439,7 @@
         };
 
         let currentTab = 'approved';
+        let currentExampleTab = 'plan';
 
         // 탭 전환
         function switchTab(tabKey) {
@@ -378,6 +526,14 @@
                 tableArea.classList.add('hidden');
             }
 
+            // 체험학습 예시보기 버튼 노출 여부 (학교장 허가 교외체험학습 항목일 경우만 표시)
+            const exampleBtnArea = document.getElementById('modal-example-btn-area');
+            if (item.id === 'app-2') {
+                exampleBtnArea.classList.remove('hidden');
+            } else {
+                exampleBtnArea.classList.add('hidden');
+            }
+
             // 모달 표시 애니메이션
             modal.classList.remove('opacity-0', 'pointer-events-none');
             modalContent.classList.remove('translate-y-full');
@@ -393,6 +549,54 @@
             setTimeout(() => {
                 modal.classList.add('pointer-events-none');
             }, 200);
+        }
+
+        /* 💡 상세 모달 내부에서 예시 모달을 열 때 상세 모달을 자연스럽게 닫아주는 함수 */
+        function openExampleModalFromDetail() {
+            closeModal();
+            setTimeout(() => {
+                openExampleModal();
+            }, 150);
+        }
+
+        /* 💡 [신규] 예시 모달 제어 함수들 */
+        function openExampleModal() {
+            const modal = document.getElementById('example-modal');
+            const modalContent = document.getElementById('example-modal-content');
+
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modalContent.classList.remove('translate-y-full');
+        }
+
+        function closeExampleModal() {
+            const modal = document.getElementById('example-modal');
+            const modalContent = document.getElementById('example-modal-content');
+
+            modalContent.classList.add('translate-y-full');
+            modal.classList.add('opacity-0');
+            setTimeout(() => {
+                modal.classList.add('pointer-events-none');
+            }, 200);
+        }
+
+        function switchExampleTab(tab) {
+            currentExampleTab = tab;
+            const planTab = document.getElementById('ex-tab-plan');
+            const reportTab = document.getElementById('ex-tab-report');
+            const planContent = document.getElementById('example-plan-content');
+            const reportContent = document.getElementById('example-report-content');
+
+            if (tab === 'plan') {
+                planTab.className = "flex-1 py-2 text-xs font-bold rounded-t-lg border-b-2 border-amber-500 text-amber-700 bg-amber-50/50 transition-colors";
+                reportTab.className = "flex-1 py-2 text-xs font-bold rounded-t-lg border-b-2 border-transparent text-slate-400 hover:text-slate-600 transition-colors";
+                planContent.classList.remove('hidden');
+                reportContent.classList.add('hidden');
+            } else {
+                reportTab.className = "flex-1 py-2 text-xs font-bold rounded-t-lg border-b-2 border-amber-500 text-amber-700 bg-amber-50/50 transition-colors";
+                planTab.className = "flex-1 py-2 text-xs font-bold rounded-t-lg border-b-2 border-transparent text-slate-400 hover:text-slate-600 transition-colors";
+                reportContent.classList.remove('hidden');
+                planContent.classList.add('hidden');
+            }
         }
 
         // 초기 시작
